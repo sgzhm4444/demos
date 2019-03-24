@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>debounce</title>
+		<script type="text/javascript">
+			function debounce(fn, delay) {
+				let timer = null;
+				return function() {
+					if (timer) clearTimeout(timer);
+					timer = setTimeout(() => {
+						fn.apply(this, arguments);
+					}, delay);
+				}
+			}
+
+			function fun() {
+				console.log('触发事件')
+			}
+			window.onload = function() {
+				document.getElementById('btn1').addEventListener('click', debounce(fun, 1000))
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn1">button</button>
+	</body>
+</html>

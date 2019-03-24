@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>throttle</title>
+		<script type="text/javascript">
+			function throttle(fn, cycle) {
+				let start = Date.now();
+				let now;
+				let timer;
+				return function() {
+					now = Date.now();
+					clearTimeout(timer);
+					if (now - start >= cycle) {
+						fn.apply(this, arguments);
+						start = now;
+					} else {
+						timer = setTimeout(() => {
+							fn.apply(this, arguments);
+						}, cycle);
+					}
+				}
+			}
+			function fun() {
+				console.log('触发事件')
+			}
+			window.onload = function() {
+				document.getElementById('btn1').addEventListener('click', throttle(fun, 1000))
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn1">button</button>
+	</body>
+</html>
