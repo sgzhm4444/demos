@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			function add() {
+				console.log('进入add');
+
+				var fn = function() {
+					console.log('调用fn');
+					return {};
+				}
+
+				fn.valueOf = function() {
+					console.log('调用valueOf');
+				}
+
+				return fn;
+			}
+			add();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+

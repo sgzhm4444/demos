@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>curry</title>
+		<script>
+			function add() {
+				console.log('进入add');
+				var args = Array.prototype.slice.call(arguments);
+				console.log(args);
+				var fn = function() {
+					var arg_fn = Array.prototype.slice.call(arguments);
+					console.log('调用fn');
+					return add.apply(null, args.concat(arg_fn));
+				}
+
+				fn.valueOf = function() {
+					console.log('调用valueOf');
+					return args.reduce(function(a, b) {
+						return a + b;
+					})
+				}
+
+				return fn;
+			}
+			add(1)(2)(3);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+
+
+
