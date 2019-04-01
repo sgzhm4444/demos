@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			console.log(1)
+			process.nextTick(() => {
+				console.log(8)
+				setTimeout(() => {
+					console.log(9)
+				})
+			})
+			setTimeout(() => {
+				console.log(2)
+				new Promise(() => {
+					console.log(11)
+				})
+			})
+			requestIdleCallback(() => {
+				console.log(7)
+			})
+			let promise = new Promise((resolve, reject) => {
+				setTimeout(() => {
+					console.log(10)
+				})
+				resolve()
+				console.log(4)
+			})
+			fn()
+			console.log(3)
+			promise.then(() => {
+				console.log(12)
+			})
+
+			function fn() {
+				console.log(6)
+			}
+		</script>
+	</head>
+	<body>
+		<h1>#Event Loop</h1>
+		<ol>
+			<li>主线程</li>
+			<li>宏队列macrotask:setTimeout、setInterval、setImmediate、I/O、UI rendering</li>
+			<li>微队列microtask:promise.then、process.nextTick</li>
+		</ol>
+		<h3>执行顺序:</h3>
+		<ol>
+			<li>先执行主线程</li>
+			<li>遇到宏队列放到宏队列</li>
+			<li>遇到微队列放到微队列</li>
+			<li>主线程执行完毕</li>
+			<li>执行微队列</li>
+			<li>执行宏队列</li>
+			<li>执行微队列</li>
+			<li>循环...</li>
+		</ol>
+	</body>
+</html>
