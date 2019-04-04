@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>algorithms</title>
+
+		//字符串反转 by reduce()
+		<script>
+			const reverse = string => string.split('').reduce((res, char) => char + res);
+		</script>
+
+		//检查字符串回文
+		<script>
+			const isPalindrome = string => {
+					const validCharacters = "abcdefghijklmnopqrstuvwxyz".split("");
+					const stringCharacters = string.toLowerCase().split("")
+						.reduce( // 过滤掉特殊符号
+							(characters, character) =>
+							validCharacters.indexOf(character) > -1 ? characters.concat(character) : characters, []
+						);
+					return stringCharacters.join("") === stringCharacters.reverse().join("");
+		</script>
+
+		//数字反转，注意+-符号
+		<script>
+			const revserInteger = integer => parseInt(number.toString().split('').reverse().join('')) * Math.sign(integer);
+		</script>
+
+		//找到字符串中出现最多的字符
+		<script>
+			const maxCharacter = (str) => {
+				const obj = {};
+				let max = 0;
+				let character = '';
+				for (let index in str) {
+					obj[str[index]] = obj[str[index]] + 1 || 1;
+				}
+				for (let i in obj) {
+					if (obj[i] > max) {
+						max = obj[i];
+						character = i;
+					}
+				}
+				return character;
+			}
+		</script>
+
+		//找到字符串中特定字母的出现个数
+		<script>
+			const vowels = str => {
+				const choices = ['a', 'e', 'i', 'o', 'u'];
+				let count = 0;
+				for (let character in str) {
+					if (choices.includes(str[character])) {
+						count++;
+					}
+				}
+				return count;
+			}
+		</script>
+
+		//按指定大小分割数组
+		<script>
+			const chunk = (array, size) => {
+				const chunks = [];
+				let index = 0;
+				while (index < array.length) {
+					chunks.push(array.slice(index, index + size));
+					index += size;
+				}
+				return chunks;
+			}
+		</script>
+
+		//翻转给定句子中的每个单词
+		<script>
+			const reverseWords = string => string.split(' ')
+				.map(word => word.split('').reverse().join('')).join(' ')
+		</script>
+
+		//找出从0开始到给定整数的所有质数
+		<script>
+			const isPrime = n => {
+				if (n > 1 && n <= 3) {
+					return true;
+				} else {
+					for (let i = 2; i <= Math.sqrt(n); i++) {
+						if (n % i == 0) {
+							return false;
+						}
+					}
+					return true
+				}
+			}
+			const prime = number => {
+				const primes = [];
+				for (let i = 2; i < number; i++) {
+					if (isPrime(i)) {
+						primes.push(i);
+					}
+				}
+				return primes;
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
