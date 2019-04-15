@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>line</title>
+		<style>
+			#div1 {
+				width: 300px;
+				height: 2px;
+				background-color: #000;
+				margin: 10px 0;
+			}
+
+			#div2 {
+				border-top: 2px solid #000;
+				margin: 10px 0;
+			}
+
+			#div3 {
+				background: linear-gradient(#000, #000) 20% / 10% 2px no-repeat;
+				margin: 10px 0;
+			}
+
+			#div4::after {
+				content: '____';
+				color: transparent;
+				font-size: 2em;
+				text-decoration: line-through #000;
+			}
+
+			#div5::after {
+				content: '____';
+				color: transparent;
+				font-size: 2em;
+				text-decoration: line-through #000;
+				text-decoration-style: dashed;
+			}
+			
+			#div6 {
+				background: linear-gradient(to left, #000 70%, transparent 0);
+				background-repeat: repeat-x;
+				background-size: 30px 5px;
+			}
+			
+			#div7 {
+				border-top: 2px dashed #000;
+				margin: 10px 0;
+			}
+			
+			#div8 {
+				width: 70%;
+				height: 1em;
+				background-color: #000;
+				border-radius: 1em;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+		<div id="div3">content</div>
+		<div id="div4"></div>
+		<div id="div5"></div>
+		<div id="div6">content</div>
+		<div id="div7"></div>
+		<div id="div8"></div>
+	</body>
+</html>
