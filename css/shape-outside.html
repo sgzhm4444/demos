@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.shape-left {
+				float: left;
+				width: 200px;
+				height: 500px;
+				shape-outside: polygon(0 0, 100% 0, 0% 100%);
+			}
+
+			.shape-right {
+				float: right;
+				width: 200px;
+				height: 500px;
+				shape-outside: polygon(100% 0, 100% 100%, 0 100%);
+			}
+
+			.content {
+				display: block;
+				padding: 1px;
+				position: relative;
+				z-index: 0;
+			}
+
+			.content::before {
+				content: '';
+				position: absolute;
+				background-color: #fff;
+				transform: skewX(-22deg);
+				left: 50px;
+				right: 50px;
+				top: 0;
+				bottom: 0;
+				border: 1px solid #ddd;
+				z-index: -1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="shape-left"></div>
+		<div class="shape-right"></div>
+		<content class="content">
+			<p><code>shape-outside</code>是不规则形状环绕布局的核心，支持的属性值分为如下四大类：</p>
+			<ol>
+				<li>none – 默认值</li>
+				<li>&lt;shape-box&gt; – 图形盒子。</li>
+				<li>&lt;basic-shape&gt; – 基本图形函数。</li>
+				<li>&lt;image&gt; – 图像类。</li>
+			</ol>
+			<p>其中：</p>
+			<ul>
+				<li><code>none</code>很好理解，表示就是普通的矩形环绕。</li>
+				<li><code>&lt;shape-box&gt;</code>（图形盒子）是shape相关布局中的一个名词，比<code>clip-path</code>属性中的<code>&lt;geometry-box&gt;</code>（几何盒子）支持的盒子要少一些，就是CSS2.1中的基本盒模型的4种盒子，分别是<code>margin-box</code>，<code>border-box</code>，<code>padding-box</code>和<code>content-box</code>。要来指定文字环绕的时候是依照哪个盒子的边缘来计算的。
+				</li>
+				<li><code>&lt;basic-shape&gt;</code>指的是基本形状函数，和CSS <a href="https://www.zhangxinxu.com/wordpress/2014/12/css3-svg-clip-path/">clip-path剪裁属性</a>支持的基本形状函数一模一样。</li>
+				<li><code>&lt;image&gt;</code>值的是图像类，包括URL链接图片，渐变图像，<a href="https://www.zhangxinxu.com/wordpress/2012/09/css3-background-image-cross-fade/">cross-fade()</a>，<a
+					 href="https://www.zhangxinxu.com/wordpress/?p=1758">element()</a>等。所有这些图像类，<a href="https://www.zhangxinxu.com/wordpress/2017/11/css-css3-mask-masks/">CSS3
+						mask遮罩属性</a>也都支持，本文只会介绍常用的URL链接和渐变图像，其他图片类不介绍，有兴趣可以访问<a href="https://www.zhangxinxu.com/wordpress/2017/11/css-css3-mask-masks/">介绍遮罩的这篇文章</a>，有完全展示。</li>
+			</ul>
+		</content>
+	</body>
+</html>

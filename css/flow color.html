@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.flow-colorful {
+				max-width: 600px;
+				height: 150px;
+				background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, purple);
+				animation: hue 6s linear infinite;
+			}
+
+			@keyframes hue {
+				from {
+					filter: hue-rotate(0deg);
+				}
+
+				to {
+					filter: hue-rotate(360deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="flow-colorful"></div>
+	</body>
+</html>

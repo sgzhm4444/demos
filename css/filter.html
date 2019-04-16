@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.origin {
+				width: 256px;
+				height: 256px;
+				background: rgba(0, 40, 140, .6) url(./resources/house-bed.jpg);
+				background-size: 100%;
+			}
+			.night {
+				width: 256px;
+				height: 256px;
+				background: rgba(0, 40, 140, .6) url(./resources/house-bed.jpg);
+				background-size: 100%;
+				background-blend-mode: darken;
+				filter: brightness(80%) grayscale(20%) contrast(1.2);
+			}
+			.light {
+				width: 256px;
+				height: 256px;
+				background: rgba(238, 179, 163, .8) url(./resources/house-bed.jpg);
+				background-size: 100%;
+				background-blend-mode: soft-light;
+				filter: contrast(1.2);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="origin"></div>
+		<div class="night"></div>
+		<div class="light"></div>
+	</body>
+</html>

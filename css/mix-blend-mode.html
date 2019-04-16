@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.cover {
+				padding: 20% 50%;
+				background: linear-gradient(to right, white 50%, black calc(50% + 1px));
+				position: relative;
+				font-size: 200%;
+			}
+
+			.cover::before,
+			.cover::after {
+				content: '';
+				position: absolute;
+				width: 20%;
+				height: 50%;
+				border-radius: 50%;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+
+			.cover::before {
+				top: 0;
+				background: radial-gradient(circle, white 13%, black calc(13% + 1px));
+			}
+
+			.cover::after {
+				bottom: 0;
+				background: radial-gradient(circle, black 13%, white calc(13% + 1px));
+			}
+
+			.cover-h,
+			.cover-p {
+				position: absolute;
+				mix-blend-mode: difference;
+				left: 0;
+				right: 0;
+				text-align: center;
+				color: #fff;
+				z-index: 1;
+				margin: 0;
+				transform: translateY(-50%);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cover">
+			<h2 class="cover-h">CSS创意与视觉表现</h2>
+		</div>
+	</body>
+</html>
