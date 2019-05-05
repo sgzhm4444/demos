@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 1200 400">
+			<title>Applying a gradient background to text in SVG</title> -->
+			<defs>
+				<linearGradient id="filler" x="0%" y="100%">
+					<stop stop-color="olivedrab" offset="0%" />
+					<stop stop-color="peru" offset="20%" />
+					<stop stop-color="goldenrod" offset="40%" />
+					<stop stop-color="firebrick" offset="60%" />
+					<stop stop-color="thistle" offset="80%" />
+					<stop stop-color="sandybrown" offset="100%" />
+				</linearGradient>
+			</defs>
+			<text x="100" y="60%" font-size="100" fill="url(#filler)">Gradient Design</text>
+		</svg>
+	</body>
+</html>
