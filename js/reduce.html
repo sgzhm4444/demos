@@ -18,5 +18,21 @@
 		<p>
 			<strong>如果没有提供initialValue，reduce 会从索引1的地方开始执行 callback 方法，跳过第一个索引。如果提供initialValue，从索引0开始。</strong>
 		</p>
+		
+		<script type="text/javascript">
+			var newArr = 'a,b,c,d,e,f'.split(',').reduce((acc, cur, idx) => {
+				let o = {};
+				if (Object.prototype.toString.call(acc) !== '[object Object]') {
+					o[cur] = idx;
+				} else {
+					let newO = {};
+					newO[cur] = idx;
+					o = { ...acc,
+						...newO,
+					};
+				};
+				return o;
+			}, 'a');
+		</script>
 	</body>
 </html>
