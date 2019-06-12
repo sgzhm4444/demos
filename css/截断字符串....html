@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#line1 {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+
+			#lineN {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+			}
+
+			#lineNforDiffBrower {
+				position: relative;
+				line-height: 1.4em;
+				/* 3 times the line-height to show 3 lines */
+				height: 4.2em;
+				overflow: hidden;
+			}
+
+			#lineNforDiffBrower::after {
+				content: "...";
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				padding: 0 200px 1px 45px;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="line1">单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断单行截断</p>
+		<p id="lineN">多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断</p>
+		<p id="lineNforDiffBrower">多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断多行截断</p>
+	</body>
+</html>
