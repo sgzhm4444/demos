@@ -17,7 +17,7 @@ let myFun = {
 }
 
 // 挂载到原型上
-Object.assign(Number.prototype, myFun)
+Object.assign(Number.prototype, myFun);
 
-;(5).add(3).minus(2)
+(5).add(3).minus(2)
 ```
