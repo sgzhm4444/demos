@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>换色器</title>
+		<style>
+			.color-changer {
+				overflow: hidden;
+				position: relative;
+				height: 100%;			
+			}
+			input {
+				position: absolute;
+				width: 50%;
+				height: 100%;
+				cursor: pointer;
+				border: none;
+				mix-blend-mode: hue;
+			}
+			img {
+				width: 50%;
+				height: 100%;
+				object-fit: cover;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 主要用到的是mix-blend-mode: hue; -->
+		<div class="color-changer">
+			<input type="color" value="#00ffff">
+			<img src="./resources/car.jpg">
+		</div>
+	</body>
+</html>
