@@ -44,7 +44,49 @@ var reg = /a/;
 | match() | 在字符串中搜索复合规则的内容，搜索成功就返回内容，格式为数组，失败就返回null | 字符串.match(正则) |
 | replace() | 查找符合正则的字符串，就替换成对应的字符串。返回替换后的内容 | 字符串.replace(正则,新的字符串/回调函数) |
 
-4. 例子
+4. 贪婪匹配与非贪婪匹配
+
+* 在RegExp后边加上?，可由贪婪匹配转为非贪婪匹配
+	
+```
+var str = "...abc...123...abc...123...";
+var reg1 = /abc(.*)123/g;
+var reg2 = /abc(.*?)123/g;
+str.match(reg1);	//"abc...123...abc...123"
+str.match(reg2);	//["abc...123", "abc...123"]
+```
+
+5. 捕获型匹配与非捕获型匹配
+
+正常用()型捕获会暂存捕获的结果，例子如下：
+
+```
+var reg = /(\d{4})-(\d{2})-(\d{2})/;
+var str = "2019-09-18";
+reg.test(str);	//RegExp.$1=2019, RegExp.$2 = 09, RegExp.$3 = 18
+```
+
+有时，我们不需要捕获结果，则可以用(?:)，例子如下：
+
+```
+var reg = /(?:\d{4})-(\d{2})-(\d{2})/;
+var str = "2019-09-18";
+reg.test(str);	//RegExp.$1 = 09, RegExp.$2 = 18
+```
+
+6. 前瞻型匹配
+
+前瞻型匹配分为正向前瞻型(?=)和反向前瞻型(?!)，两个都为非捕获型，例子如下：
+
+```
+var regP = /this is (?=positive)/;
+var regN = /this is (?!positive)/;
+var str = "this is positive";
+regP.test(str);		//true
+regN.test(str);		//false
+```
+
+7. 例子
 
 (1) 找到重复项最多的字符个数
 ```
